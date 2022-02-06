@@ -16,28 +16,8 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: ButtonBar(
-          alignment: MainAxisAlignment.spaceBetween,
-          buttonPadding: EdgeInsets.zero,
-          children: [
-            "\$${catalog.price}".text.xl4.red500.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
-                shape: MaterialStateProperty.all(
-                  StadiumBorder(),
-                ),
-              ),
-              child: "Add to Cart".text.xl.make(),
-            ).wh(130, 50),
-          ],
-        ).p32(),
-      ),
+      backgroundColor: context.canvasColor,
+      
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -53,15 +33,15 @@ class HomeDetailPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   width: context.screenWidth,
-                  color: Colors.white,
+                  color: context.cardColor,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyTheme.darkBluishColor)
+                          .color(context.accentColor)
                           .make(),
                       catalog.desc.text.xl.color(Vx.gray400).make(),
                       10.heightBox,
-                      "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem v Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem vLorem vLorem Loremv LoremLorem LoremLoremLoremLoremLoremLoremLoremLorem Lorem".text.sm.color(Vx.gray400).make().p16(),
+                      "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem vLorem vLorem Loremv LoremLorem LoremLoremLoremLoremLoremLoremLoremLorem Lorem".text.sm.color(Vx.gray400).make().p16(),
                     ],
                   ).py64(),
                 ),
@@ -69,6 +49,28 @@ class HomeDetailPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+
+      bottomNavigationBar: Container(
+        color: context.cardColor,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          buttonPadding: EdgeInsets.zero,
+          children: [
+            "\$${catalog.price}".text.xl4.red500.make(),
+            ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(context.theme.buttonColor),
+                shape: MaterialStateProperty.all(
+                  StadiumBorder(),
+                ),
+              ),
+              child: "Add to Cart".text.xl.make(),
+            ).wh(130, 50),
+          ],
+        ).p32(),
       ),
     );
   }
