@@ -1,4 +1,5 @@
 import 'package:first_flutter_app/models/catalog.dart';
+import 'package:first_flutter_app/widgets/home_widgets/add_to_cart.dart';
 import 'package:first_flutter_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -34,16 +35,18 @@ class HomeDetailPage extends StatelessWidget {
                 child: Container(
                   width: context.screenWidth,
                   color: context.cardColor,
-                  child: Column(
-                    children: [
-                      catalog.name.text.xl4
-                          .color(context.accentColor)
-                          .make(),
-                      catalog.desc.text.xl.color(Vx.gray400).make(),
-                      10.heightBox,
-                      "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem vLorem vLorem Loremv LoremLorem LoremLoremLoremLoremLoremLoremLoremLorem Lorem".text.sm.color(Vx.gray400).make().p16(),
-                    ],
-                  ).py64(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        catalog.name.text.xl4
+                            .color(context.accentColor)
+                            .make(),
+                        catalog.desc.text.xl.color(Vx.gray400).make(),
+                        10.heightBox,
+                        "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem vLorem vLoremLorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem vLorem vLorem Loremv LoremLorem LoremLoremLoremLoremLoremLoremLoremLorem Lorem".text.sm.color(Vx.gray400).make().p16(),
+                      ],
+                    ).py64(),
+                  ),
                 ),
               ),
             ),
@@ -58,17 +61,7 @@ class HomeDetailPage extends StatelessWidget {
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.xl4.red500.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(context.theme.buttonColor),
-                shape: MaterialStateProperty.all(
-                  StadiumBorder(),
-                ),
-              ),
-              child: "Add to Cart".text.xl.make(),
-            ).wh(130, 50),
+            AddToCart(catalog: catalog,).wh(130, 50),
           ],
         ).p32(),
       ),

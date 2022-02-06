@@ -1,4 +1,5 @@
 import 'package:first_flutter_app/pages/cart_page.dart';
+import 'package:first_flutter_app/pages/home_detail_page.dart';
 import 'package:first_flutter_app/utils/routes.dart';
 import 'package:first_flutter_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
