@@ -8,10 +8,8 @@ import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 
 void main() {
-  runApp(VxState(
-    store: MyStore(),
-    child: MyApp()
-    ),
+  runApp(
+    VxState(store: MyStore(), child: MyApp()),
   );
 }
 
@@ -28,18 +26,35 @@ class MyApp extends StatelessWidget {
     // const PI = 3.14;
 
     return MaterialApp(
-        // home: HomePage(),
-        themeMode: ThemeMode.light,
-        // themeMode: ThemeMode.dark,
-        theme: MyTheme.lightTheme(context),
-        darkTheme: MyTheme.darkTheme(context),
-        debugShowCheckedModeBanner: false,
-        initialRoute: MyRoutes.loginRoute,
-        routes: {
-          // "/": (context) => LoginPage(),
-          MyRoutes.homeRoute: (context) => HomePage(),
-          MyRoutes.loginRoute: (context) => LoginPage(),
-          MyRoutes.cartRoute: (context) => CartPage(),
-        });
+      // home: HomePage(),
+      themeMode: ThemeMode.light,
+      // themeMode: ThemeMode.dark,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      debugShowCheckedModeBanner: false,
+      // routeInformationParser: VxInformationParser(),
+      // routerDelegate: VxNavigator(routes: {
+      //   "/": (_, __) => MaterialPage(child: LoginPage()),
+      //   MyRoutes.homeRoute: (_, __) => MaterialPage(child: HomePage()),
+      //   MyRoutes.homeDetailsRoute: (uri, _) {
+      //     final catalog = (VxState.store as MyStore)
+      //         .catalog
+      //         .getById(int.parse(uri.queryParameters["i"].toString()));
+      //     return MaterialPage(
+      //         child: HomeDetailPage(
+      //       catalog: catalog,
+      //     ));
+      //   },
+      //   MyRoutes.loginRoute: (_, __) => MaterialPage(child: LoginPage()),
+      //   MyRoutes.cartRoute: (_, __) => MaterialPage(child: CartPage()),
+      // }),
+      initialRoute: MyRoutes.homeRoute,
+      routes: {
+      "/": (context) => LoginPage(),
+      MyRoutes.homeRoute: (context) => HomePage(),
+      MyRoutes.loginRoute: (context) => LoginPage(),
+      MyRoutes.cartRoute: (context) => CartPage(),
+      }
+    );
   }
 }
