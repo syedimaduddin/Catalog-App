@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.first_flutter_app">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="first_flutter_app"
+        android:label="Catalog App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -39,4 +39,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
 </manifest>
